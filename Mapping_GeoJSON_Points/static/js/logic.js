@@ -33,7 +33,13 @@ let sanFranAirport =
 ]};
 
 // Grabbing our GeoJSON data.
-L.geoJSON(sanFranAirport).addTo(map);
+L.geoJson(sanFranAirport, {
+  // We turn each feature into a marker on the map.
+  onEachFeature: function(feature, layer) {
+    console.log(layer);
+    layer.bindPopup();
+  }
+}).addTo(map);
 
 // Create a polyline using the line coordinates and make the line yellow.
 //L.polyline(line, {
@@ -69,7 +75,6 @@ cityData.forEach(function(city) {
     .bindPopup("<h2>" + city.city + ", " + city.state + "</h2> <hr> <h3>Population " + city.population.toLocaleString() + "</h3>")
     .addTo(map);
 });
-
 
 
 
