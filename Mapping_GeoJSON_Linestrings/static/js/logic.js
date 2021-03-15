@@ -53,21 +53,37 @@ L.control.layers(baseMaps).addTo(map);
    // Accessing the airport GeoJSON URL
    //let airportData = "https://raw.githubusercontent.com/tchal100/Mapping_Earthquakes/main/majorAirports.json"
    //let airportData = "https://raw.githubusercontent.com/tchal100/Mapping_Earthquakes/main/majorAirports.json"
-   let torontoData = "https://raw.githubusercontent.com/tchal100/Mapping_Earthquakes/main/torontoRoutes.json" 
+   let torontoData = "https://raw.githubusercontent.com/tchal100/Mapping_Earthquakes/main/torontoRoutes.json"; 
+   
 
-
-   // Grabbing our GeoJSON data.
+// Grabbing our GeoJSON data.
 d3.json(torontoData).then(function(data) {
   console.log(data);
-// Creating a GeoJSON layer with the retrieved data.
-L.geoJson(data, {
+  // Creating a GeoJSON layer with the retrieved data.
+  L.geoJson(data, {
+  // Create a style for the lines.
+ // Create a style for the lines.
   color: "#ffffa1",
   weight: 2,
   onEachFeature: function(feature, layer) {
-      console.log(feature);
-      layer.bindPopup("<h3>Airline:" + feature.properties.airline + "</h3> <hr> <h3>Destination: " + feature.properties.dst + "</h3>")
-    }).addTo(map);
-  })
+     layer.bindPopup("<h3>Airline:" + feature.properties.airline + "</h3> <hr> <h3>Destination: " + feature.properties.dst + "</h3>")
+  }
+})
+.addTo(map);
+});
+
+//    // Grabbing our GeoJSON data.
+// d3.json(torontoData).then(function(data) {
+//   console.log(data);
+// // Creating a GeoJSON layer with the retrieved data.
+// L.geoJson(data, {
+//   color: "#ffffa1",
+//   weight: 2,
+//   onEachFeature: function(feature, layer) {
+//     layer.bindPopup("<h3>Airline:" + feature.properties.airline + "</h3> <hr> <h3>Destination: " + feature.properties.dst + "</h3>");
+//   }
+//  }).addTo(map);
+//  })
 
 
 // onEachFeature:function(feature, layer) {
