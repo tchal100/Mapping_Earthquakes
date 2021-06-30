@@ -131,8 +131,7 @@ Now take a look at the global quantity of large activites shown on our tectonic 
 
 
 
-
-http://127.0.0.1:5500/Mapping_Earthquakes/Earthquake_Challenge/index.html
+http://127.0.0.1:5502/Mapping_Earthquakes/Earthquake_Challenge/index.html
 
 
 
